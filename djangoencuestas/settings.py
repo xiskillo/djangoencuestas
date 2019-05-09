@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'nucleo',
     'qr',
     'qr_code',
+    'encuestas',
 ]
 
 MIDDLEWARE = [
