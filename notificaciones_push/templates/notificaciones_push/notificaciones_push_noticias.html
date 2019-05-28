@@ -1,0 +1,36 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Notificaciones Push{% endblock %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row mt-2">
+      <div class="col-md-3"></div>
+        <div> 
+                {% if 'ok' in request.GET %}
+                    <p style="color:green"><b>NOTIFICACION ENVIADA</b></p>                
+                {% endif %}      
+            <form action="" method="POST">{% csrf_token %}
+             <h2 class="mb-6">Formulario de Notificaciones y Noticias</h2>
+             <p class="lead">Envío de noticias a todos los dispositivos móviles activos..</p>
+             <br>
+                <table>
+                    {{ form.as_p}}
+                </table>
+                <br>
+                
+                    <br>                    
+                <button class="btn btn-primary" type="submit"><spam class="fas fa-fw fa-envelope"></spam> ENVIAR</button>                   
+            </form>
+     </div>
+
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}

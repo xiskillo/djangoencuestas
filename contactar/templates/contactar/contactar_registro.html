@@ -1,0 +1,67 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Contactar{% endblock %}
+
+
+{%block contactar_registro_no %}
+
+
+<div class="container">
+    <div class="row mt-2">
+      <div class="col-md-3"></div>
+        <div> 
+                {% if 'ok' in request.GET %}
+                    <p style="color:green"><b>MENSAJE ENVIADO AL ADMINISTRADOR</b></p>                
+                {% endif %}      
+            <form action="" method="POST">{% csrf_token %}
+             <h2 class="mb-6">Solicitud de Registro</h2>
+             <br>
+                <table>
+                    {{ form.as_table}}
+                </table>
+                <br>
+               
+                    <br>                    
+                <button class="btn btn-primary" type="submit"><spam class="fas fa-fw fa-envelope"></spam> ENVIAR</button>                   
+            </form>
+     </div>
+
+    </div>
+    
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row mt-2">
+      <div class="col-md-3"></div>
+        <div> 
+                {% if 'ok' in request.GET %}
+                    <p style="color:green"><b>MENSAJE ENVIADO AL ADMINISTRADOR</b></p>                
+                {% endif %}      
+            <form action="" method="POST">{% csrf_token %}
+             <h2 class="mb-6">Solicitud de Registro</h2>
+             <br>
+                <table>
+                    {{ form.as_table}}
+                </table>
+                <br>
+               
+                    <br>                    
+                <button class="btn btn-primary" type="submit"><spam class="fas fa-fw fa-envelope"></spam> ENVIAR</button>                   
+            </form>
+     </div>
+
+    </div>
+    
+</div>
+      
+{% endblock %}

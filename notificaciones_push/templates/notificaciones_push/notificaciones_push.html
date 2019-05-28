@@ -1,0 +1,38 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Notificaciones Push{% endblock %}
+{% block content %}
+
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+<h1>Notificaciones Push</h1>
+<p class="lead">Envio de notificaciones móviles</p>
+
+</div>
+
+
+<a href="{% url 'notificaciones_push_noticias' %}" class="btn btn-success">ENVIAR PUSH DE NOTICIAS</a>
+<a href="{% url 'notificaciones_push_individual' %}" class="btn btn-success">ENVIAR PUSH INDIVIDUAL</a>
+<!-- 
+<div class="alert alert-info">aqui mensaje: {{ message }}</div>
+
+
+<form method="POST">{% csrf_token %}
+<button class="btn btn-primary" name="code" type="submit" value="android">Push Android!</button>
+<button class="btn btn-primary" name="code" type="submit" value="ios">Push iOSs!</button>
+<button class="btn btn-primary" name="code" type="submit" value="simple">Push Individual!</button>
+</form> -->
+
+
+
+
+<div class="sticky-footer">
+  <div class="float-left">
+    <a href="{% url 'enviar_activos' %}" class="btn btn-info">PUSH ANDROID</a>
+  </div>     
+</div>
+
+
+
+{% endblock %}

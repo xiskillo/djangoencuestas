@@ -1,0 +1,57 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Solicitud de Códigos QR{% endblock %}
+{% block content %}
+
+
+<div  class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card" >
+      <div class="card-header text-center" style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#2F6982;letter-spacing:3pt;word-spacing:5pt;font-size:30px;text-align:justify;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> Solicitud de Códigos QR
+      </div>
+
+      
+
+        {% for p in pacientes %}
+       
+
+      <div class="card-body">
+        <div class="col-12 mb-2"></div>
+
+        <div class="card">
+          <div class="card-header">
+            <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;color:#7E90BF;
+                                    letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                    line-height:1;">Nombre del Responsable Médico: <i>{{request.user}}</i></a>
+          </div>
+
+          <div class="card-body">
+            <h3><b>Nombre del Paciente:</b></h3>
+            <br>
+            <h1 style="color:blue;">{{p.nombre}} {{p.apellidos}}</h1>      
+                      
+            <br>
+                      
+          </div>
+
+          <div class="card-footer">
+            <div class="float-right">
+              <a href="{% url 'generarqr' p.nuhsa %}" class="btn btn-info">SOLICITAR</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    {% endfor %}
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+{% endblock %}

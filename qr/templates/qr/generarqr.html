@@ -1,0 +1,94 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Generación de Códigos QR{% endblock %}
+{% block content %}
+{% load qr_code %}
+
+
+<div  class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card" >
+      <div class="card-header text-center" style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#2F6982;letter-spacing:3pt;word-spacing:5pt;font-size:30px;text-align:justify;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> Generación de Códigos QR
+      </div>
+
+      <a href="{% url 'solicitarqr' %}" class="btn btn-secondary float-right">Volver</a>
+
+        
+       
+
+            <div class="card-body">
+                    <div class="col-12 mb-2"></div>
+
+                        <div class="card">
+                                    <div class="card-header">
+                                        <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;color:#7E90BF;
+                                                                letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                                                line-height:1;">Código Paciente sin Codificación: <i>{{n}}</i></a>
+                                    </div>
+
+                                    <div class="card-body">
+                                            <p style="text-align: center">
+                                                    <br>
+                                                    {% qr_from_text n size="L" %}
+                                                    <br><br>
+                                                </p>
+                                                
+                                    </div>
+
+                                    <div class="card-footer">
+                                                    <div class="float-right">
+                                                            <button class="btn btn-info" onclick="javascript:window.print()">IMPRIMIR</button>     
+                                                                
+                                                    </div>
+                                    </div>
+                        </div>   
+            
+
+            
+                </div>
+
+
+                <div class="card-body">
+                        <div class="col-12 mb-2"></div>
+    
+                            <div class="card">
+                                        <div class="card-header">
+                                            <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;color:#7E90BF;
+                                                                    letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                                                    line-height:1;">Código de Paciente con Codificación: <i>{{c}}</i></a>
+                                        </div>
+    
+                                        <div class="card-body">
+                                                <p style="text-align: center">
+                                                        <br>
+                                                        {% qr_from_text c size="L" %}
+                                                        <br><br>
+                                                    </p>
+                                                    
+                                                    
+                                        </div>
+    
+                                        <div class="card-footer">
+                                                        <div class="float-right">
+                                                                <button class="btn btn-info" onclick="javascript:window.print()">IMPRIMIR</button>     
+                                                                    
+                                                        </div>
+                                        </div>
+                            </div>   
+                
+    
+                
+                    </div>
+      
+    
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+{% endblock %}

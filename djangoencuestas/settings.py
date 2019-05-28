@@ -25,12 +25,14 @@ SECRET_KEY = '5y(ewun!t1@ig#svsq*3l-r37csgkfu@ch^3z)m_vl1aoi-w^4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
+    'corsheaders', #CORS
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,9 +43,37 @@ INSTALLED_APPS = [
     'qr',
     'qr_code',
     'encuestas',
+    'rest_framework',
+    'contactar',
+    'push_notifications',
+    'notificaciones_push',
+    'testing',
+    
+    
 ]
 
+PUSH_NOTIFICATIONS_SETTINGS = {
+        "FCM_API_KEY": "AAAABEslyvo:APA91bE7bqyLb7LEq7JAtUJqmZq_XOD05GriVJgLCP76AzFD-6JIU9FhOMyt3kVi-IYVpRf-a6tj84cZMcIBdXOCRAwFLPjXWhroagnl1pKmv4cRqKbj2kmGpXXlTczI_RIG0ccfLH0k",
+        "GCM_API_KEY": "AAAABEslyvo:APA91bE7bqyLb7LEq7JAtUJqmZq_XOD05GriVJgLCP76AzFD-6JIU9FhOMyt3kVi-IYVpRf-a6tj84cZMcIBdXOCRAwFLPjXWhroagnl1pKmv4cRqKbj2kmGpXXlTczI_RIG0ccfLH0k"
+        # "APNS_CERTIFICATE": "/path/to/your/certificate.pem",
+        # "APNS_TOPIC": "com.example.push_test",
+        # "WNS_PACKAGE_SECURITY_ID": "[your package security id, e.g: 'ms-app://e-3-4-6234...']",
+        # "WNS_SECRET_KEY": "[your app secret key, e.g.: 'KDiejnLKDUWodsjmewuSZkk']",
+        # "WP_PRIVATE_KEY": "/path/to/your/private.pem",
+        # "WP_CLAIMS": {'sub': "mailto: development@example.com"}
+}
+
+REST_FRAMEWORK = {
+    # Mira bien este temita 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.AllowAny'
+    # ]
+}
+
+CORS_ORIGIN_ALLOW_ALL = True #CORS
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,9 +110,22 @@ WSGI_APPLICATION = 'djangoencuestas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3test'),
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'RAY',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation
@@ -107,7 +150,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -121,4 +164,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+#UBICACION FICHEROS ESTÁTICOS
+
 STATIC_URL = '/static/'
+
+# REDIRECCIONES APP REGISTRATION
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+
+
+#DATOS CONEXION EMAIL
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'xiskillotesting@gmail.com'
+EMAIL_HOST_PASSWORD = 'testingxiskillo'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True

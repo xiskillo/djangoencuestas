@@ -1,0 +1,62 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Editar Procedimientos{% endblock %}
+{% block content %}
+
+
+
+
+<div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header text-center" style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                      color:#2F6982;letter-spacing:3pt;word-spacing:5pt;font-size:30px;text-align:justify;
+                      font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> Gestión de Procedimientos para la Encuesta
+            </div>
+
+            {% if 'ok' in request.GET %}
+
+                <p style="color: blue; text-align: center; font-weight: bold;"> ACCIÓN REALIZADA CORRECTAMENTE </p>
+
+            {% endif %}
+
+            <a href="{% url 'detallar_procedimientos' procedimientos.id %}" class="btn btn-secondary">Volver</a>
+      
+            
+      
+             
+      
+            <div class="card-body">
+              <div class="col-12 mb-2"></div>
+      
+              <div class="card">
+                <div class="card-header">
+                  <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;text-decoration:underline;color:#7E90BF;
+                                          letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                          line-height:1;">EDITAR PACIENTE: INTRODUZCA LOS DATOS SOLICITADOS</a>
+                </div>
+                
+
+                <br>
+      
+                <form action="" method="post">{% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>                
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="ACEPTAR" />
+                </form>
+                        
+                   
+      
+                
+
+              </div>
+            </div>
+           
+          </div>
+          
+        </div>
+        
+      </div>
+{% endblock %}

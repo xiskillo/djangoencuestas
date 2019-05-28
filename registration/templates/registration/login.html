@@ -1,0 +1,54 @@
+{% extends 'nucleo/base.html' %}
+{% load static %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block login_no %}
+
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-7">
+       
+        <form action="" method="post">{% csrf_token %}
+         
+          <h2 class="mb-6">INTRODUCE TUS DATOS DE USUARIO</h2>
+         
+          {% if form.non_field_errors %}
+           
+            <p style="color:rgb(240, 11, 42)"><b>Error de Autenticación</b></p>
+          
+          {% endif %}
+
+         
+                <p>
+                    <input type="text" name="username" required id="id_username" class="form-control" placeholder="Usuario"/>
+                </p>
+                <p>
+                    <input type="password" name="password" required id="id_password" class="form-control" placeholder="Contraseña"/>
+                </p>
+                 
+          
+          
+         
+         <button class="btn btn-primary" type="submit"><spam class="fas fa-fw fa-user"></spam> INICIAR SESIÓN</button>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block login_si %}
+
+
+
+    <br>
+        <div class="card" >
+        <div class="card-header text-center" style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                        color:#2F6982;letter-spacing:3pt;word-spacing:5pt;font-size:30px;text-align:justify;
+                        font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> YA ESTÁS IDENTIFICADO
+            </div>
+        </div>
+    <br>
+{% endblock %}
+
+
