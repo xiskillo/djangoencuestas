@@ -14,8 +14,9 @@ def generarqr(request, nuhsa):
     original = nuhsa
     originalbytes = original.encode("UTF-8")
     codificacion = base64.b64encode(originalbytes)
+    codificacion_sin_utf8=codificacion.decode("UTF-8")
     
-    return render(request,"qr/generarqr.html", {'n':n, 'c':codificacion})
+    return render(request,"qr/generarqr.html", {'n':n, 'c':codificacion, 'x':codificacion_sin_utf8})
 
 
 

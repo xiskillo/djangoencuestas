@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'registration',
     'corsheaders', #CORS
+    'graphos',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,8 +47,9 @@ INSTALLED_APPS = [
     'encuestas',
     'rest_framework',
     'contactar',
-    'push_notifications',
+    # 'push_notifications',
     'notificaciones_push',
+    'estadisticas',
     'testing',
     
     
@@ -67,7 +70,25 @@ REST_FRAMEWORK = {
     # Mira bien este temita 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     # 'DEFAULT_PERMISSION_CLASSES': [
     #     'rest_framework.permissions.AllowAny'
-    # ]
+    # # ]
+
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated'
+    # ),
+
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # )
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+
+    'ACCESS_TOKEN_LIFETIME' : timedelta(minutes=3000),
+    'REFRESH_TOKEN_LIFETIME' : timedelta(days=3),
 }
 
 CORS_ORIGIN_ALLOW_ALL = True #CORS
@@ -152,7 +173,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 

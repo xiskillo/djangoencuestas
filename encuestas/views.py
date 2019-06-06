@@ -13,7 +13,9 @@ from rest_framework import routers, serializers, viewsets
 
 from encuestas.serializers import UserSerializer, PacientesSerializer, ProcedimientosSerializer, EncuestasSerializer 
 
-from .forms import ProcedimientosForm
+from .forms import ProcedimientosForm,EncuestasForm,PacientesForm
+
+from rest_framework.permissions import IsAuthenticated
 
 
 # VISTAS PARA LA SECCCION DE ENCUESTAS Y PREGUNTAS
@@ -36,7 +38,8 @@ def detallar_encuestas(request, encuestas_id):
 class EncuestasCreate(CreateView):
     
     model=Encuestas
-    fields=['pregunta','respuesta','procedimiento','medico','paciente']
+    # fields=['pregunta','respuesta','procedimiento','medico','paciente']
+    form_class=EncuestasForm
     
 
     # def get_success_url(self):
@@ -47,7 +50,8 @@ class EncuestasCreate(CreateView):
 class EncuestasUpdate(UpdateView):
     
     model=Encuestas
-    fields=['pregunta','respuesta','procedimiento','medico','paciente']
+    # fields=['pregunta','respuesta','procedimiento','medico','paciente']
+    form_class=EncuestasForm
     template_name_suffix = '_update_form'
     
 
@@ -61,6 +65,13 @@ class EncuestasDelete(DeleteView):
 
     model=Encuestas
     success_url = reverse_lazy('listar_encuestas')
+
+
+
+
+
+
+
 
 
 #VISTAS PARA LA SECCION DE PACIENTES
@@ -80,7 +91,8 @@ def detallar_pacientes(request, pacientes_id):
 class PacientesCreate(CreateView):
     
     model=Pacientes
-    fields=['nombre','apellidos','telefono','nuhsa']   
+    # fields=['nombre','apellidos','telefono','nuhsa']  
+    form_class=PacientesForm 
 
     
     success_url = reverse_lazy('listar_pacientes')
@@ -89,7 +101,8 @@ class PacientesCreate(CreateView):
 class PacientesUpdate(UpdateView):
     
     model=Pacientes
-    fields=['nombre','apellidos','telefono','nuhsa']
+    # fields=['nombre','apellidos','telefono','nuhsa']
+    form_class=PacientesForm 
     template_name_suffix = '_update_form'
     
     def get_success_url(self):
@@ -100,6 +113,14 @@ class PacientesDelete(DeleteView):
 
     model=Pacientes
     success_url = reverse_lazy('listar_pacientes')
+
+
+
+
+
+
+
+
 
 
 #VISTAS PARA LA SECCION DE PROCEDIMIENTOS
@@ -129,7 +150,7 @@ class ProcedimientosCreate(CreateView):
 class ProcedimientosUpdate(UpdateView):
     
     model=Procedimientos
-    fields=['nombre','descripcion','medico']
+    form_class=ProcedimientosForm
     template_name_suffix = '_update_form'
     
     def get_success_url(self):
@@ -141,6 +162,11 @@ class ProcedimientosDelete(DeleteView):
     model=Procedimientos
     success_url = reverse_lazy('listar_procedimientos')
     
+
+
+
+
+
 
 # SECCION PARA TESTING SECCION PARA TESTING SECCION PARA TESTING SECCION PARA TESTING SECCION PARA TESTING
 
@@ -165,6 +191,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class PacientesViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+
     queryset = Pacientes.objects.all()
     serializer_class = PacientesSerializer
 
@@ -183,11 +211,17 @@ class PacientesViewSet(viewsets.ModelViewSet):
 
 
 class ProcedimientosViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    
     queryset = Procedimientos.objects.all()
     serializer_class = ProcedimientosSerializer
 
 
 class EncuestasViewSet(viewsets.ModelViewSet):
+
+    permission_classes = (IsAuthenticated,)
+    
+
     queryset = Encuestas.objects.all()
     serializer_class = EncuestasSerializer
 

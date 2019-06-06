@@ -1,14 +1,21 @@
 {% extends 'nucleo/base.html' %}
-
-
-
-
-
+{% load static %}
+{% block title %}Bienvenido{% endblock %}
 {% block content %}
 
-
-        <h1>Proyecto de Investigación y Encuestas</h1>
+        <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#2F6982;letter-spacing:2pt;word-spacing:1pt;font-size:50px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> Proyecto de Investigación <br>y<br> Encuestas</p>
+       
         <hr>
-        <p>Bienvenido al sistema de gestión de cuestionarios al servicio médico destinado a los pacientes del Hospital Puerta del Mar</p>
+     
+         <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#079b8c;letter-spacing:2pt;word-spacing:1pt;font-size:20px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> Bienvenido al sistema de gestión de cuestionarios al servicio médico destinado a los pacientes del Hospital Puerta del Mar de Cádiz</p>
 
+
+        <div style="text-align:center">
+                 <img   style="border-radius: 20px" src="{% static 'nucleo/img/hospital.png' %}" />
+        </div>
+        
 {% endblock %}

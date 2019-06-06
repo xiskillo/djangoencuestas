@@ -26,17 +26,39 @@
           </div>
 
           <div class="card-body">
-            <b>Procedimiento:</b>{{encuestas.procedimiento}}
-            <br>
-            <b>Pregunta:</b> {{encuestas.pregunta}}
-            <br>
-            <b>Respuesta:</b> {{encuestas.respuesta}}
-            <br>            
-            <b>Paciente (OCULTO):</b> {{encuestas.paciente.nombre}}
-            <br>
-            <b>Fecha de Creación: </b>{{encuestas.created}}
-            <br>
-            <b>Fecha de edición: </b> {{encuestas.updated}}            
+            
+            
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">PREGUNTA</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#428cf4;letter-spacing:2pt;word-spacing:1pt;font-size:30px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{encuestas.pregunta}}</p>
+                <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">RESPUESTA</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#079b8c;letter-spacing:2pt;word-spacing:1pt;font-size:69px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{encuestas.respuesta}}</p>
+                <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">PROCEDIMIENTO</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#c795ed;letter-spacing:2pt;word-spacing:1pt;font-size:22px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{encuestas.procedimiento}}</p>
+                <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">Fecha de Creación</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#7e7487;letter-spacing:2pt;word-spacing:1pt;font-size:17px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{encuestas.created}}</p>
+                <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">Fecha de Respuesta</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#7e7487;letter-spacing:2pt;word-spacing:1pt;font-size:17px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{encuestas.updated}}</p>
+            
           </div>
 
           <div class="card-footer">

@@ -4,16 +4,118 @@
 {% block content %}
 
 
-<!-- Jumbotron -->
-<div class="jumbotron">
-<h1>Notificaciones Push</h1>
-<p class="lead">Envio de notificaciones móviles</p>
 
+
+<div  class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card" >
+      <div class="card-header text-center" style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#2F6982;letter-spacing:3pt;word-spacing:5pt;font-size:30px;text-align:justify;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">Notificaciones Push 
+      </div>
+
+      <a href="{% url 'home' %}" class="btn btn-secondary float-right">Volver</a>
+
+        
+       
+
+            <div class="card-body">
+                    <div class="col-12 mb-2"></div>
+
+                        <div class="card">
+                                    <div class="card-header">
+                                        <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;color:#7E90BF;
+                                                                letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                                                line-height:1;">ENVÍO DE NOTIFICACIONES MÓVILES ANDROID</a>
+                                                                
+
+
+                                    </div>
+
+                                    <div class="card-body">
+                                            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#479935;letter-spacing:2pt;word-spacing:1pt;font-size:69px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> GOOGLE ANDROID</p>
+
+                {% if 'ok' in request.GET %}
+                    <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#479935;letter-spacing:2pt;word-spacing:1pt;font-size:18px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"><b>NOTIFICACION ENVIADA</b></p>                
+                {% endif %}  
+                                                
+                                    </div>
+
+                                    <div class="card-footer">
+                                                    <div>
+                                                    <a href="{% url 'notificaciones_push_avisos' %}" class="btn btn-danger btn-lg btn-block">ENVIAR PUSH AVISO DE ENCUESTAS</a>
+                                                    <a href="{% url 'notificaciones_push_noticias' %}" class="btn btn-success btn-lg btn-block" >ENVIAR PUSH DE NOTICIAS</a>
+                                                    <a href="{% url 'notificaciones_push_individual' %}" class="btn btn-info btn-lg btn-block">ENVIAR PUSH INDIVIDUAL</a>
+                                                                                                              
+                                                    </div>
+                                    </div>
+                        </div>   
+
+                      
+            
+
+            
+                </div>
+
+
+
+
+
+                <div class="card-body">
+                    <div class="col-12 mb-2"></div>
+
+                        <div class="card">
+                                    <div class="card-header">
+                                        <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;color:#7E90BF;
+                                                                letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                                                line-height:1;">ENVÍO DE NOTIFICACIONES MÓVILES APPLE</a>
+                                    </div>
+
+                                    <div class="card-body">
+                                            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#c9c9c5;letter-spacing:2pt;word-spacing:1pt;font-size:69px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> APPLE IOS</p>
+                                                
+                                    </div>
+
+                                    <div class="card-footer">
+                                                    <div >
+                                                     <a href="{% url 'home' %}" class="btn btn-danger btn-lg btn-block">ENVIAR PUSH AVISO DE ENCUESTAS</a> 
+                                                    <a href="{% url 'home' %}" class="btn btn-success btn-lg btn-block">ENVIAR PUSH DE NOTICIAS</a>
+                                                    <a href="{% url 'home' %}" class="btn btn-info btn-lg btn-block">ENVIAR PUSH INDIVIDUAL</a>   
+                                                                                                          
+                                                    </div>
+                                    </div>
+                        </div>   
+
+                      
+            
+
+            
+                </div>
+
+
+
+                
+
+
+                
+      
+    
+    </div>
+    
+  </div>
+  
 </div>
 
 
-<a href="{% url 'notificaciones_push_noticias' %}" class="btn btn-success">ENVIAR PUSH DE NOTICIAS</a>
-<a href="{% url 'notificaciones_push_individual' %}" class="btn btn-success">ENVIAR PUSH INDIVIDUAL</a>
+
+
+
 <!-- 
 <div class="alert alert-info">aqui mensaje: {{ message }}</div>
 
@@ -24,14 +126,6 @@
 <button class="btn btn-primary" name="code" type="submit" value="simple">Push Individual!</button>
 </form> -->
 
-
-
-
-<div class="sticky-footer">
-  <div class="float-left">
-    <a href="{% url 'enviar_activos' %}" class="btn btn-info">PUSH ANDROID</a>
-  </div>     
-</div>
 
 
 

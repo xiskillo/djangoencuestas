@@ -24,7 +24,7 @@ class Pacientes(models.Model):
       ordering = ['-created']
 
   def __str__(self):
-    return self.nombre+' '+self.apellidos
+    return str(self.nombre) + ' ' + str(self.apellidos)
 
 
 class Procedimientos(models.Model):
@@ -52,7 +52,8 @@ class Encuestas(models.Model):
     paciente=models.ForeignKey(Pacientes, to_field='nuhsa', verbose_name="Paciente", null=True, blank=True, on_delete=models.CASCADE)
     procedimiento=models.ForeignKey(Procedimientos, verbose_name="Procedimiento Médico", null=True, blank=True, on_delete=models.CASCADE)
     pregunta=models.TextField(verbose_name="Pregunta de la Encuesta",null=True, blank=True)
-    respuesta=models.TextField(verbose_name="Respuesta a la Pregunta",null=True, blank=True)
+    respuesta=models.TextField(verbose_name="Respuesta a la Pregunta",null=True, blank=True, default='')
+    contestacion=models.TextField(verbose_name="SI o NO contestación",null=True, blank=True, default="NO")
     
     created=models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")    
     updated=models.DateTimeField(auto_now=True, verbose_name="Fecha de Edición")

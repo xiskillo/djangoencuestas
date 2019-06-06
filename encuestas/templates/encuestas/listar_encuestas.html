@@ -29,12 +29,31 @@
           </div>
 
           <div class="card-body">
-            <b>Procedimiento:</b> {{e.procedimiento}}
-            <br>
-            <p><h4><b style="color:blue;">Pregunta:</b></h4></p>
-            <p><h1 style="color:green;"> {{e.pregunta}} </h1></p>
-            <br>
-                      
+            
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">PROCEDIMIENTO</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#c795ed;letter-spacing:2pt;word-spacing:1pt;font-size:22px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{e.procedimiento}}</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#0a3470;letter-spacing:2pt;word-spacing:1pt;font-size:12px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">PREGUNTA</p>
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#428cf4;letter-spacing:2pt;word-spacing:1pt;font-size:37px;text-align:center;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> {{e.pregunta}}</p>
+                <br>
+                {% if e.contestacion == 'NO' %}
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#b21121;letter-spacing:2pt;word-spacing:1pt;font-size:16px;text-align:right;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">{{e.contestacion}} HA SIDO RESPONDIDA</p>
+                {% endif %}
+
+                {% if e.contestacion == 'SI' %}
+            <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                color:#3eb233;letter-spacing:2pt;word-spacing:1pt;font-size:16px;text-align:right;
+                font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;">{{e.contestacion}} HA SIDO RESPONDIDA</p>
+                {% endif %}
           </div>
 
           <div class="card-footer">

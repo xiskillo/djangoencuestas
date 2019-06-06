@@ -29,7 +29,7 @@ class ProcedimientosSerializer(serializers.ModelSerializer):
 class EncuestasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Encuestas
-        fields = ('id', 'medico', 'paciente', 'procedimiento', 'pregunta', 'respuesta', 'created', 'updated')
+        fields = ('id', 'medico', 'paciente', 'procedimiento', 'pregunta', 'respuesta', 'contestacion', 'created', 'updated')
 
 
 class TestingSerializer(serializers.ModelSerializer):

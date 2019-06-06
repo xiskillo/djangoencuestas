@@ -16,12 +16,13 @@ def contactar_registro(request):
                         nif=request.POST.get('nif', '')
                         email=request.POST.get('email', '')
                         user=request.POST.get('user', '')
-                        pwd=request.POST.get('pwd', '')                        
+                        pwd=request.POST.get('pwd', '')
+                        pwd_confirmacion=request.POST.get('pwd_confirmacion', '')                        
                         mensaje=request.POST.get('mensaje', '')
 
                         
                        
-                        email=EmailMessage("Mensaje Recibido solicitando Usuario y Contraseña para Encuestas","Nombre: {}\nApellidos: {}\nNIF: {}\nEMAIL: {}\nUsuario: {}\nContraseña: {}\n\n\nMensaje: \n{}".format(nombre,apellidos,nif,email,user,pwd,mensaje),
+                        email=EmailMessage("Mensaje Recibido solicitando Usuario y Contraseña para Encuestas","Nombre: {}\nApellidos: {}\nNIF: {}\nEMAIL: {}\nUsuario: {}\nContraseña: {}\nConfirmar Contraseña: {}\n\n\nMensaje: \n{}".format(nombre,apellidos,nif,email,user,pwd,pwd_confirmacion,mensaje),
                                 "xiskillo@hotmail.com",["xiskillo@gmail.com"],reply_to=[email])
 
                         email.send()
@@ -41,7 +42,7 @@ def contactar_informacion(request):
                         nombre=request.POST.get('nombre', '')                       
                         email=request.POST.get('email', '')
                         mensaje=request.POST.get('mensaje', '')
-                        email=EmailMessage("Mensaje Recibido solicitando INFORMACIÓN","Nombre: {}\EMAIL: {}\n\n\n\nMensaje: \n{}".format(nombre,email,mensaje),
+                        email=EmailMessage("Mensaje Recibido solicitando INFORMACIÓN","Nombre: {}\nEMAIL: {}\n\n\n\nMensaje: \n{}".format(nombre,email,mensaje),
                                 "xiskillo@hotmail.com",["xiskillo@gmail.com"],reply_to=[email])
 
                         email.send()

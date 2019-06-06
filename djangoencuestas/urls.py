@@ -20,11 +20,15 @@ from django.urls import path, include,re_path
 
 from django.contrib.auth.models import User
 from testing.models import Ticket, Category
-from rest_framework import routers
+
 
 from testing.views import UserViewSet, TicketViewSet, CategoryViewSet
 
 from encuestas.views import UserViewSet, EncuestasViewSet, ProcedimientosViewSet, PacientesViewSet
+
+from rest_framework import routers
+
+from rest_framework_simplejwt import views as jwt_views
 
 
 
@@ -53,6 +57,7 @@ urlpatterns = [
     path('encuestas/', include('encuestas.urls')),
     path('contactar/', include ('contactar.urls')), 
     path('push/', include ('notificaciones_push.urls')), 
+    path('estadisticas/', include ('estadisticas.urls')), 
     path('admin/', admin.site.urls),
 
     #PARA LA APP REGISTROS
@@ -63,10 +68,13 @@ urlpatterns = [
     
     # path('api/', include('encuestas.urls')),
     path(r'', include(router.urls)),
-    path(r'apitesting/', include('rest_framework.urls', namespace='rest_framework')),
-    path(r'api/', include('rest_framework.urls', namespace='rest_framework'))
-]
+    # path(r'apitesting/', include('rest_framework.urls', namespace='rest_framework')),
+    path(r'api/', include('rest_framework.urls', namespace='rest_framework')),
 
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+   
+]
 
 
 

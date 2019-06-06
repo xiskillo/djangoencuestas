@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect, get_list_or_404, get_object_or_404
-from push_notifications.models import APNSDevice, GCMDevice
+# from push_notifications.models import APNSDevice, GCMDevice
 from .forms import NoticiasForm, MensajeForm
 from django.urls import reverse
 import requests
@@ -56,6 +56,35 @@ def notificaciones_push_noticias(request):
 
 
 
+def notificaciones_push_avisos(request):
+    
+   
+    
+    url = 'https://onesignal.com/api/v1/notifications'
+    payload = {
+            "app_id": "0a094478-26f7-4064-8d31-1c4a23e16402",
+            "included_segments": ["Active Users", "Inactive Users"],        
+            "contents": { "en": "Por favor, contesta las preguntas recibidas", "es": "Por favor, contesta las preguntas recibidas"},
+            "headings": { "en": "CONSULTA TUS ENCUESTAS", "es": "CONSULTA TUS ENCUESTAS"}
+            }
+
+    headers = {'content-type': 'application/json',
+                'Authorization': 'Basic MWU2YTdkZmUtMmJhMy00YjAxLThhMjYtYzlkY2JhMjFjYTVm'}
+
+
+    post = requests.post(url, data=json.dumps(payload), headers=headers)
+
+    
+    if (1==1):
+        return redirect(reverse('notificaciones_push')+'?ok')
+
+                  
+   
+    
+    return render(request, "notificaciones_push/notificaciones_push.html")
+
+
+
 
 def enviar_noticias(titulo, mensaje):
 
@@ -93,23 +122,7 @@ def enviar_individual(titulo, mensaje, id_android):
 
     
 
-def enviar_activos(request):
 
-   
-    url = 'https://onesignal.com/api/v1/notifications'
-    payload = {
-            "app_id": "0a094478-26f7-4064-8d31-1c4a23e16402",
-            "included_segments": ["Active Users", "Inactive Users"],        
-            "contents": { "en": "INGLEEE", "es": "Por favor, contesta las preguntas recibidas"},
-            "headings": { "en": " TITULO INGLEEE", "es": "CONSULTA SI TIENES ENCUESTAS NUEVAS"}
-            }
-
-    headers = {'content-type': 'application/json',
-                'Authorization': 'Basic MWU2YTdkZmUtMmJhMy00YjAxLThhMjYtYzlkY2JhMjFjYTVm'}
-
-    post = requests.post(url, data=json.dumps(payload), headers=headers)
-
-    return render(request, 'notificaciones_push/notificaciones_push.html')
     
 
 def pushHttpResponse(request):
@@ -124,6 +137,11 @@ def notificaciones_push(request):
 
     return render(request, 'notificaciones_push/notificaciones_push.html')
 
+
+
+
+
+#METODO PROBLEMATICO CON OTRO MODULO
 # def notificaciones_push(request):
 
 #     message="RAY"
