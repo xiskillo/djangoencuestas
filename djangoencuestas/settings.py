@@ -203,3 +203,10 @@ EMAIL_HOST_USER = 'xiskillotesting@gmail.com'
 EMAIL_HOST_PASSWORD = 'testingxiskillo'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
+
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'in-v3.mailjet.com'
+# EMAIL_HOST_USER = '6f7a5375022754a370c638927ccb65fa'
+# EMAIL_HOST_PASSWORD = '2680cefd40691e49820da4c0c7e44f5c'
+# EMAIL_PORT = '587'

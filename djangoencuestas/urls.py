@@ -34,11 +34,11 @@ from rest_framework_simplejwt import views as jwt_views
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'apitesting/users', UserViewSet)
+# router.register(r'apitesting/users', UserViewSet)
 
-router.register(r'apitesting/tickets', TicketViewSet)
+# router.register(r'apitesting/tickets', TicketViewSet)
 
-router.register(r'apitesting/category', CategoryViewSet)
+# router.register(r'apitesting/category', CategoryViewSet)
 
 
 router.register(r'api/users', UserViewSet)

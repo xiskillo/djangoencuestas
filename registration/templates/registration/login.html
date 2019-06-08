@@ -1,19 +1,46 @@
+
+
+
 {% extends 'nucleo/base.html' %}
 {% load static %}
-{% block title %}Iniciar sesión{% endblock %}
+{% block title %}Iniciar Sesión{% endblock %}
 {% block login_no %}
 
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-7">
-       
-        <form action="" method="post">{% csrf_token %}
+
+
+
+<div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header text-center" style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                      color:#2F6982;letter-spacing:3pt;word-spacing:5pt;font-size:30px;text-align:justify;
+                      font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"> Administración de Usuarios
+            </div>
+      
+            
+      
+             
+      
+            <div class="card-body">
+              <div class="col-12 mb-2"></div>
+      
+              <div class="card">
+                <div class="card-header">
+                  <a style="text-shadow:1px 1px 1px rgba(79,185,255,1);font-weight:normal;text-decoration:underline;color:#7E90BF;
+                                          letter-spacing:1pt;word-spacing:2pt;font-size:16px;text-align:justify;font-family:lucida sans unicode, lucida grande, sans-serif;
+                                          line-height:1;">INTRODUCE TUS DATOS DE USUARIO:</a>
+                </div>
+                <br>
+      
+                <form action="" method="post">{% csrf_token %}
          
-          <h2 class="mb-6">INTRODUCE TUS DATOS DE USUARIO</h2>
+          <h6 class="mb-6">DATOS PARA EL PROFESORADO:</h6><h6>Usuario: administrador Contraseña: proyectointegrado</h6>
          
           {% if form.non_field_errors %}
            
-            <p style="color:rgb(240, 11, 42)"><b>Error de Autenticación</b></p>
+                    <p style="text-shadow:1px -3px 5px rgba(200,145,255,0.7);font-weight:normal;
+                    color:#af291a;letter-spacing:2pt;word-spacing:1pt;font-size:18px;text-align:center;
+                    font-family:lucida sans unicode, lucida grande, sans-serif;line-height:1;"><b>USUARIO Y CONTRASEÑA INVÁLIDOS</b></p>  
           
           {% endif %}
 
@@ -28,14 +55,27 @@
           
           
          
-         <button class="btn btn-primary" type="submit"><spam class="fas fa-fw fa-user"></spam> INICIAR SESIÓN</button>
+         <button class="btn btn-primary btn-lg btn-block" type="submit"><spam class="fas fa-fw fa-user"></spam> INICIAR SESIÓN</button>
         
         </form>
-      </div>
-    </div>
-  </div>
+                        
+                   
+      
+                
 
+              </div>
+            </div>
+           
+          </div>
+          
+        </div>
+        
+      </div>
 {% endblock %}
+
+
+
+
 
 {% block login_si %}
 
@@ -50,5 +90,7 @@
         </div>
     <br>
 {% endblock %}
+
+
 
 
