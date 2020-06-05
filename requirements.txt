@@ -6,7 +6,7 @@ cffi==1.12.3
 chardet==3.0.4
 colorama==0.4.1
 cryptography==2.6.1
-Django==2.0.2
+Django==2.2.13
 django-cors-headers==3.0.1
 django-graphos==0.3.41
 django-qr-code==1.0.0
